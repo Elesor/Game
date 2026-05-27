@@ -791,6 +791,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1017002254}
+  - {fileID: 1658414701}
   m_Father: {fileID: 143270265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015087315
@@ -4225,6 +4226,68 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 1596577526}
+--- !u!1001 &1658414700
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1010380579}
+    m_Modifications:
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039618547384298396, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+      propertyPath: m_Name
+      value: Wardrobe (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+--- !u!4 &1658414701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4116123498180023027, guid: 3443866b1e5520f40a8fda8d9c018bf7, type: 3}
+  m_PrefabInstance: {fileID: 1658414700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1806783767
 GameObject:
   m_ObjectHideFlags: 0
