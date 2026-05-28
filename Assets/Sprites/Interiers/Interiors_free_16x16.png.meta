@@ -2266,15 +2266,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DoorOpened
+      name: Door
       rect:
         serializedVersion: 2
         x: 112
         y: 1264
         width: 16
         height: 32
-      alignment: 9
-      pivot: {x: 0.5112953, y: 0.12158203}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2332,13 +2332,101 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LargeTable2_2
+      name: Interiors_free_16x16_126
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1248
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b72f4c2c505b94bbe776766fadc493
+      internalID: 2008659231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_127
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1248
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200e425fae2b2ea40a8694525ba5610d
+      internalID: 1126719205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_128
       rect:
         serializedVersion: 2
         x: 112
-        y: 1216
-        width: 32
-        height: 48
+        y: 1248
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c073c5b5f02af45854ad3c88fe3a42
+      internalID: 63704003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_129
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1248
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63bd4210197684d46bf8cbe470f39e84
+      internalID: -1385996586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_131
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1248
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2376,7 +2464,117 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LargeTableCont2
+      name: Interiors_free_16x16_137
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1232
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9dd941bc89b76046a325217251e068b
+      internalID: 95338723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_138
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1232
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d460c6e6e4457489a11ca68d0c38ad
+      internalID: -1417475986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_139
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1232
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5e7fe2ca187fa34fa4d07f700aafe5f
+      internalID: -1673662243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_140
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1232
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd23fe9704792954eac707bf442ff460
+      internalID: 775846721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_141
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1232
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685313fecda92d6479107292279d3a07
+      internalID: -26057557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_142
       rect:
         serializedVersion: 2
         x: 144
@@ -2508,15 +2706,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LargeTable1_1
+      name: LargeTable1
       rect:
         serializedVersion: 2
         x: 0
         y: 1216
-        width: 32
+        width: 64
         height: 48
-      alignment: 9
-      pivot: {x: 0.4666733, y: 0.56589}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2530,13 +2728,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LargeTableCont1
+      name: Interiors_free_16x16_152
       rect:
         serializedVersion: 2
         x: 64
         y: 1216
         width: 16
-        height: 48
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2552,13 +2750,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LargeTable2_1
+      name: Interiors_free_16x16_153
       rect:
         serializedVersion: 2
         x: 80
         y: 1216
-        width: 32
-        height: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2574,13 +2772,79 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Interiors_free_16x16_154
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1216
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d98c3e8fc75cee46b258532d97eb985
+      internalID: -1511001870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_155
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1216
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 457c5c1df74d8bd44869ed242c1a7f6e
+      internalID: -206114051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_156
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1216
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34db9abd31094a34887fb587ccc6ee40
+      internalID: 1359735344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Interiors_free_16x16_157
       rect:
         serializedVersion: 2
         x: 144
         y: 1216
         width: 16
-        height: 48
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2596,7 +2860,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foods1
+      name: Interiors_free_16x16_158
       rect:
         serializedVersion: 2
         x: 176
@@ -2728,15 +2992,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LargeTable1_2
+      name: Interiors_free_16x16_164
       rect:
         serializedVersion: 2
-        x: 32
-        y: 1216
-        width: 32
-        height: 48
-      alignment: 9
-      pivot: {x: 0.53180003, y: 0.5480016}
+        x: 48
+        y: 1200
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2794,7 +3058,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foods2
+      name: Interiors_free_16x16_170
       rect:
         serializedVersion: 2
         x: 176
@@ -2816,7 +3080,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foods3
+      name: Interiors_free_16x16_171
       rect:
         serializedVersion: 2
         x: 192
@@ -2992,7 +3256,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foods4
+      name: Interiors_free_16x16_185
       rect:
         serializedVersion: 2
         x: 176
@@ -3014,7 +3278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foods5
+      name: Interiors_free_16x16_186
       rect:
         serializedVersion: 2
         x: 192
@@ -3828,7 +4092,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Switch
+      name: Interiors_free_16x16_248
       rect:
         serializedVersion: 2
         x: 16
@@ -7392,6 +7656,28 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Interiors_free_16x16_445
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 848
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0ced5ffce5acb4682baf7e7868e136
+      internalID: 891027201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Interiors_free_16x16_448
       rect:
         serializedVersion: 2
@@ -7502,13 +7788,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Books
+      name: Interiors_free_16x16_457
       rect:
         serializedVersion: 2
         x: 160
         y: 832
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -7700,7 +7986,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Globus1
+      name: Interiors_free_16x16_473
       rect:
         serializedVersion: 2
         x: 208
@@ -7722,7 +8008,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Globus2
+      name: Interiors_free_16x16_474
       rect:
         serializedVersion: 2
         x: 224
@@ -7761,6 +8047,28 @@ TextureImporter:
       bones: []
       spriteID: 027898e479d62cb4c827fc3474559082
       internalID: -1449594404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_476
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 800
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2702f362ff828df40bd62d3ca22087aa
+      internalID: 509649191
       vertices: []
       indices: 
       edges: []
@@ -8008,13 +8316,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChairBack
+      name: Interiors_free_16x16_491
       rect:
         serializedVersion: 2
         x: 16
         y: 784
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -8272,6 +8580,28 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Interiors_free_16x16_505
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 784
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18009e17376fbc4ba3e12569cc154d3
+      internalID: -841458832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Interiors_free_16x16_506
       rect:
         serializedVersion: 2
@@ -8382,6 +8712,28 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Interiors_free_16x16_511
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 768
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60c17f29e22e56469dfb54a930f94a9
+      internalID: -1671525992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Interiors_free_16x16_512
       rect:
         serializedVersion: 2
@@ -8465,6 +8817,28 @@ TextureImporter:
       bones: []
       spriteID: 961b6ed723b9a314c9b6da9d0262a0c2
       internalID: 886708699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_521
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 768
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d691b3e6ebcbd2e46b878de88ff6b129
+      internalID: -1001016031
       vertices: []
       indices: 
       edges: []
@@ -8580,13 +8954,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chair25
+      name: Interiors_free_16x16_527
       rect:
         serializedVersion: 2
         x: 80
         y: 752
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -8756,13 +9130,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DoorClosed
+      name: Interiors_free_16x16_537
       rect:
         serializedVersion: 2
         x: 240
         y: 752
         width: 16
-        height: 48
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9856,6 +10230,28 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Interiors_free_16x16_608
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 624
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3543f1d7c8baebb4c9b6ec49dad1bd2c
+      internalID: -100152150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Interiors_free_16x16_609
       rect:
         serializedVersion: 2
@@ -10120,11 +10516,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TablePlant
+      name: Interiors_free_16x16_623
       rect:
         serializedVersion: 2
         x: 0
-        y: 618
+        y: 608
         width: 16
         height: 16
       alignment: 0
@@ -10670,6 +11066,28 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Interiors_free_16x16_649
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 592
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad30e825799516e49b67cf6225ae2b31
+      internalID: -1302736182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Interiors_free_16x16_650
       rect:
         serializedVersion: 2
@@ -10709,6 +11127,50 @@ TextureImporter:
       bones: []
       spriteID: cc3d4d95a6f0d7443b76b229dd9b1e6e
       internalID: 1874793972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_652
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 592
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc732aad8ec289347874b1c9178d1982
+      internalID: 1610972349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_653
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 592
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3319e16a184ea8b4884df9721103fd48
+      internalID: -312728049
       vertices: []
       indices: 
       edges: []
@@ -10956,13 +11418,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tymbochka
+      name: Interiors_free_16x16_665
       rect:
         serializedVersion: 2
         x: 176
         y: 576
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11022,13 +11484,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_Lamp67
+      name: Interiors_free_16x16_668
       rect:
         serializedVersion: 2
         x: 224
         y: 576
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11044,13 +11506,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_Lamp8
+      name: Interiors_free_16x16_669
       rect:
         serializedVersion: 2
         x: 240
         y: 576
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11303,6 +11765,94 @@ TextureImporter:
       bones: []
       spriteID: f0fa221d7b5923e4494ea408aa632cb3
       internalID: 1986703258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_681
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 560
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f017ae158accb4fa08297c5e4ac210
+      internalID: 1543071680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_682
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 560
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9faed067b4d0e63478307f219532c9a1
+      internalID: 1724728580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_683
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 560
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d5a2cfd8cef01044afedbfe001966ea
+      internalID: 1428613357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_684
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 560
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039420a56aefa3647b037940ba0c6a7f
+      internalID: -854054274
       vertices: []
       indices: 
       edges: []
@@ -11572,13 +12122,57 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_Lamp5
+      name: Interiors_free_16x16_697
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 544
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a460a12408b9fa947a1ef1ce6a36fe93
+      internalID: 1801322495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_698
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 544
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a296155ad7c0a8d42855052f9ed19b47
+      internalID: 213723636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_699
       rect:
         serializedVersion: 2
         x: 224
         y: 544
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11594,13 +12188,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_Lamp6
+      name: Interiors_free_16x16_700
       rect:
         serializedVersion: 2
         x: 240
         y: 544
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11836,13 +12430,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flor_Lamp3
+      name: Interiors_free_16x16_711
       rect:
         serializedVersion: 2
         x: 192
         y: 528
         width: 16
-        height: 48
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11858,13 +12452,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Floor_Lamp4
+      name: Interiors_free_16x16_712
       rect:
         serializedVersion: 2
         x: 208
         y: 528
         width: 16
-        height: 48
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -20608,12 +21202,10 @@ TextureImporter:
         value: '{"sliceOnImport":false,"gridCellCount":{"x":64.0,"y":64.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       1: 863853106
-      3: 572924676
       APaint2: 209870464
       Apaint3: -1099458614
       Blackdesk: 655821241
       Blackdsek1: -215488205
-      Books: -1505300174
       Carpet1: 863853106
       Carpet1_2: 1647185586
       Carpet2: -1936251455
@@ -20634,7 +21226,6 @@ TextureImporter:
       Chair2: -1410807453
       Chair20: -1755802168
       Chair21: 91944164
-      Chair25: -1308846376
       Chair3: 1333788456
       Chair4: -1271618033
       Chair5: -962161670
@@ -20642,17 +21233,11 @@ TextureImporter:
       Chair7: 119405616
       Chair8: 615303329
       Chair9: -968111257
-      ChairBack: -745051330
+      Door: 1021315125
       Door2: 551211660
       Door3: 1684996878
-      DoorClosed: -2126213785
-      DoorOpened: 1021315125
       Floor_Lamp1: -1593106764
       Floor_Lamp2: 397005172
-      Floor_Lamp4: -784437557
-      Flor_Lamp3: 315289229
-      Globus1: -1156802094
-      Globus2: 1620461764
       Interiors_free_16x16_0: -1549645957
       Interiors_free_16x16_1: -1947151952
       Interiors_free_16x16_10: -495340208
@@ -20804,16 +21389,19 @@ TextureImporter:
       Interiors_free_16x16_129: -1385996586
       Interiors_free_16x16_13: 401851567
       Interiors_free_16x16_130: 954377683
+      Interiors_free_16x16_131: -2107877224
       Interiors_free_16x16_132: -1338426861
       Interiors_free_16x16_133: -621688168
       Interiors_free_16x16_134: -112487736
       Interiors_free_16x16_135: 1695024403
       Interiors_free_16x16_136: -1915612068
+      Interiors_free_16x16_137: 95338723
       Interiors_free_16x16_138: -1417475986
       Interiors_free_16x16_139: -1673662243
       Interiors_free_16x16_14: -1998360627
       Interiors_free_16x16_140: 775846721
       Interiors_free_16x16_141: -26057557
+      Interiors_free_16x16_142: 749229291
       Interiors_free_16x16_143: -710762187
       Interiors_free_16x16_144: 1077671943
       Interiors_free_16x16_145: -1901237953
@@ -20823,22 +21411,28 @@ TextureImporter:
       Interiors_free_16x16_15: -29785952
       Interiors_free_16x16_150: -1131456334
       Interiors_free_16x16_151: -1883348717
+      Interiors_free_16x16_152: -1002956423
+      Interiors_free_16x16_153: -1928431751
       Interiors_free_16x16_154: -1511001870
       Interiors_free_16x16_155: -206114051
       Interiors_free_16x16_156: 1359735344
       Interiors_free_16x16_157: 714485026
+      Interiors_free_16x16_158: -126125547
       Interiors_free_16x16_159: -322774528
       Interiors_free_16x16_16: -595387369
       Interiors_free_16x16_160: 2001304139
       Interiors_free_16x16_161: -1260639298
       Interiors_free_16x16_162: -1345707117
       Interiors_free_16x16_163: 1451670831
+      Interiors_free_16x16_164: 1506182550
       Interiors_free_16x16_165: 294597441
       Interiors_free_16x16_166: -1903489651
       Interiors_free_16x16_167: -1380166266
       Interiors_free_16x16_168: -120182426
       Interiors_free_16x16_169: 1988994501
       Interiors_free_16x16_17: 2018356214
+      Interiors_free_16x16_170: 1700701941
+      Interiors_free_16x16_171: 173796248
       Interiors_free_16x16_172: -1613250567
       Interiors_free_16x16_173: 79385038
       Interiors_free_16x16_174: -1706042834
@@ -20851,6 +21445,8 @@ TextureImporter:
       Interiors_free_16x16_180: 685429550
       Interiors_free_16x16_182: 300046016
       Interiors_free_16x16_183: 865961317
+      Interiors_free_16x16_185: -759885796
+      Interiors_free_16x16_186: 413461560
       Interiors_free_16x16_187: -1820109483
       Interiors_free_16x16_188: 145488669
       Interiors_free_16x16_189: 1030333613
@@ -20917,6 +21513,7 @@ TextureImporter:
       Interiors_free_16x16_245: 2125237418
       Interiors_free_16x16_246: -1289862999
       Interiors_free_16x16_247: -1232910806
+      Interiors_free_16x16_248: -1993014209
       Interiors_free_16x16_249: -63802829
       Interiors_free_16x16_25: -1873149809
       Interiors_free_16x16_250: -1821926675
@@ -21123,6 +21720,7 @@ TextureImporter:
       Interiors_free_16x16_454: 1819408186
       Interiors_free_16x16_455: 2069052106
       Interiors_free_16x16_456: 1897061999
+      Interiors_free_16x16_457: -1505300174
       Interiors_free_16x16_458: 931401697
       Interiors_free_16x16_459: 1422720454
       Interiors_free_16x16_46: 1269655400
@@ -21136,6 +21734,8 @@ TextureImporter:
       Interiors_free_16x16_47: -1449885963
       Interiors_free_16x16_470: -1983693831
       Interiors_free_16x16_472: -1305038434
+      Interiors_free_16x16_473: -1156802094
+      Interiors_free_16x16_474: 1620461764
       Interiors_free_16x16_475: -1449594404
       Interiors_free_16x16_476: 509649191
       Interiors_free_16x16_477: 1592275557
@@ -21154,6 +21754,7 @@ TextureImporter:
       Interiors_free_16x16_489: -1715118064
       Interiors_free_16x16_49: 440355601
       Interiors_free_16x16_490: 1592311826
+      Interiors_free_16x16_491: -745051330
       Interiors_free_16x16_492: -1424839593
       Interiors_free_16x16_493: -777495430
       Interiors_free_16x16_494: -1742281944
@@ -21191,6 +21792,7 @@ TextureImporter:
       Interiors_free_16x16_524: -150031157
       Interiors_free_16x16_525: 1085141662
       Interiors_free_16x16_526: -1416283301
+      Interiors_free_16x16_527: -1308846376
       Interiors_free_16x16_528: -1592044690
       Interiors_free_16x16_529: -1190701604
       Interiors_free_16x16_53: 127347513
@@ -21198,6 +21800,7 @@ TextureImporter:
       Interiors_free_16x16_531: 537406522
       Interiors_free_16x16_533: -1287200368
       Interiors_free_16x16_536: 72495003
+      Interiors_free_16x16_537: -2126213785
       Interiors_free_16x16_538: 1783742763
       Interiors_free_16x16_539: -573068755
       Interiors_free_16x16_54: 861807634
@@ -21287,6 +21890,7 @@ TextureImporter:
       Interiors_free_16x16_620: 396898403
       Interiors_free_16x16_621: 1917966502
       Interiors_free_16x16_622: 585202374
+      Interiors_free_16x16_623: -1664832471
       Interiors_free_16x16_624: 1445886124
       Interiors_free_16x16_625: -1890458986
       Interiors_free_16x16_626: -1038867037
@@ -21331,8 +21935,11 @@ TextureImporter:
       Interiors_free_16x16_662: -528400647
       Interiors_free_16x16_663: -869082263
       Interiors_free_16x16_664: -894052583
+      Interiors_free_16x16_665: 1764005746
       Interiors_free_16x16_666: 1833472863
       Interiors_free_16x16_667: 17199113
+      Interiors_free_16x16_668: 572924676
+      Interiors_free_16x16_669: -773717564
       Interiors_free_16x16_67: 30614202
       Interiors_free_16x16_670: -418446151
       Interiors_free_16x16_671: -1748489478
@@ -21365,8 +21972,10 @@ TextureImporter:
       Interiors_free_16x16_696: 543228779
       Interiors_free_16x16_697: 1801322495
       Interiors_free_16x16_698: 213723636
+      Interiors_free_16x16_699: 419627823
       Interiors_free_16x16_7: -1161499900
       Interiors_free_16x16_70: 1659958054
+      Interiors_free_16x16_700: 1841467074
       Interiors_free_16x16_701: 2073403398
       Interiors_free_16x16_702: -2059250425
       Interiors_free_16x16_703: -742410843
@@ -21378,6 +21987,8 @@ TextureImporter:
       Interiors_free_16x16_709: 1463836346
       Interiors_free_16x16_71: -757618257
       Interiors_free_16x16_710: -1379132650
+      Interiors_free_16x16_711: 315289229
+      Interiors_free_16x16_712: -784437557
       Interiors_free_16x16_713: -1011622738
       Interiors_free_16x16_714: -295893070
       Interiors_free_16x16_715: 1053396152
@@ -21689,13 +22300,8 @@ TextureImporter:
       Interiors_free_16x16_997: -475614186
       Interiors_free_16x16_998: 1154812558
       Interiors_free_16x16_999: 1952225505
-      LargeTable1_1: -914173217
-      LargeTable1_2: 1506182550
+      LargeTable1: -914173217
       LargeTable2: -415545486
-      LargeTable2_1: -1928431751
-      LargeTable2_2: -2107877224
-      LargeTableCont1: -1002956423
-      LargeTableCont2: 749229291
       Plant1: 607575151
       Plant2: -1820634176
       Plant3: 1410197844
@@ -21703,28 +22309,16 @@ TextureImporter:
       SoSoComp1: 1754339941
       SoSoComp2: 163771304
       SoSoComp3: 1737254510
-      Switch: -1993014209
       Table1: -1234974420
       Table2: -1916630900
       Table3: 1262560891
       TableNChair1: 750376333
       TableNChair2: -2026391240
-      TablePlant: -1664832471
       Table_Lamp1: 867004683
       Table_Lamp2: -115827422
       Table_Lamp3: 1326803796
       Table_Lamp4: -1148286456
-      Table_Lamp5: 419627823
-      Table_Lamp6: 1841467074
-      Table_Lamp67: 572924676
-      Table_Lamp8: -773717564
-      Tymbochka: 1764005746
       Wardrobe: -268220697
-      foods1: -126125547
-      foods2: 1700701941
-      foods3: 173796248
-      foods4: -759885796
-      foods5: 413461560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
