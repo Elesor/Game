@@ -1,0 +1,720 @@
+fileFormatVersion: 2
+guid: f672af34bdc78f34bb01372f7c0e6f12
+AssetOrigin:
+  serializedVersion: 1
+  productId: 256038
+  packageName: 2D 16-bit pixel top-down sprites
+  packageVersion: 1.0
+  assetPath: Assets/Godn0ta/2D 16-bit pixel top-down sprites/World/ComputersOnTables.png
+  uploadId: 587972
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ComputersOnTables_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673444888a9e46942aca88027c6964a1
+      internalID: -777940725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_22
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733ec0415298a794bb38a04f519dbd7e
+      internalID: 1149207772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d3367cdf36a8c4abd6c84eb930fd72
+      internalID: -330267228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39467f6ff54d02946a0ab7f72ab884b2
+      internalID: 2023374324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_28
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 128
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f82c75447294a48a8b87f04f8f3092
+      internalID: -1407017449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_30
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641028efb87d9394d81794188e39fa22
+      internalID: 482550324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd133fd49c1f2bc439a2bc82bc029314
+      internalID: -254462783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_54
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8505f5e8754c45438ecf95bbbc9ac1e
+      internalID: -373844336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_56
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11737617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a145f1eb22ad2ce4a89dd2d21b76adae
+      internalID: -1383103421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_58
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 80
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ca82972b08240428f9b75b9d6ba781
+      internalID: 610855308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_60
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 80
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e1016cd9bbc0f94eb25ad12f85d97e1
+      internalID: -2121213093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_62
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 80
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f942a8a56a46cf14997f2d4ba1043cd3
+      internalID: 605263762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c61c9bf7e825a42a006a7f4c73a754
+      internalID: -573073593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_86
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdedc12ac0c699e4582b45527dc9681b
+      internalID: 1867117494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_88
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c49802aefabe84c9fbedea9d98a15d
+      internalID: -705388137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_90
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14787e3220cee6245a6654e850c34ece
+      internalID: 1610103659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_92
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 32
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb6abdd6eba22942a43fde70eeeef23
+      internalID: 1277456149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_94
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875d5cee529b4d8468d4f98de9eac189
+      internalID: -1251197043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_102
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60694618b04c59143a6d764275b0984c
+      internalID: -22756243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_104
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab97b7c7ce37ff343a7463f71997a655
+      internalID: 1370724976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ComputersOnTables_106
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21c7ee874cdf9ff4d8eb987c0513e4d0
+      internalID: -747798577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ComputersOnTables_0: 1979813422
+      ComputersOnTables_1: 719213242
+      ComputersOnTables_10: 1134670731
+      ComputersOnTables_100: 388291692
+      ComputersOnTables_101: 1918050001
+      ComputersOnTables_102: -22756243
+      ComputersOnTables_103: 350043499
+      ComputersOnTables_104: 1370724976
+      ComputersOnTables_105: 1496839569
+      ComputersOnTables_106: -747798577
+      ComputersOnTables_107: -1664027293
+      ComputersOnTables_11: -1852302461
+      ComputersOnTables_12: -1639219034
+      ComputersOnTables_13: 1509811191
+      ComputersOnTables_14: -315412773
+      ComputersOnTables_15: 199660373
+      ComputersOnTables_16: -1214141420
+      ComputersOnTables_17: 1973295888
+      ComputersOnTables_18: -1150216009
+      ComputersOnTables_19: -470294209
+      ComputersOnTables_2: 197039310
+      ComputersOnTables_20: -777940725
+      ComputersOnTables_21: 1799099593
+      ComputersOnTables_22: 1149207772
+      ComputersOnTables_23: 1402928063
+      ComputersOnTables_24: -330267228
+      ComputersOnTables_25: -559205965
+      ComputersOnTables_26: 2023374324
+      ComputersOnTables_27: 1470077577
+      ComputersOnTables_28: -1407017449
+      ComputersOnTables_29: -405108379
+      ComputersOnTables_3: 224245797
+      ComputersOnTables_30: 482550324
+      ComputersOnTables_31: -824064889
+      ComputersOnTables_32: -399533163
+      ComputersOnTables_33: 1967966170
+      ComputersOnTables_34: 1620898106
+      ComputersOnTables_35: -577180344
+      ComputersOnTables_36: 54402550
+      ComputersOnTables_37: -1497696809
+      ComputersOnTables_38: -1606757710
+      ComputersOnTables_39: -1704356732
+      ComputersOnTables_4: 1212990940
+      ComputersOnTables_40: 419834610
+      ComputersOnTables_41: 2067007979
+      ComputersOnTables_42: 582928074
+      ComputersOnTables_43: -1498046007
+      ComputersOnTables_44: 1646943938
+      ComputersOnTables_45: 1009818601
+      ComputersOnTables_46: -1206111413
+      ComputersOnTables_47: -936486375
+      ComputersOnTables_48: 1892252572
+      ComputersOnTables_49: 579634520
+      ComputersOnTables_5: -1494702250
+      ComputersOnTables_50: 1658585531
+      ComputersOnTables_51: 1886289066
+      ComputersOnTables_52: -254462783
+      ComputersOnTables_53: -1933050848
+      ComputersOnTables_54: -373844336
+      ComputersOnTables_55: 933354567
+      ComputersOnTables_56: -1383103421
+      ComputersOnTables_57: 290464369
+      ComputersOnTables_58: 610855308
+      ComputersOnTables_59: 1753579427
+      ComputersOnTables_6: 2111218064
+      ComputersOnTables_60: -2121213093
+      ComputersOnTables_61: -1603149146
+      ComputersOnTables_62: 605263762
+      ComputersOnTables_63: -908277910
+      ComputersOnTables_64: 641093698
+      ComputersOnTables_65: 663661098
+      ComputersOnTables_66: -1774559998
+      ComputersOnTables_67: -137320916
+      ComputersOnTables_68: 1298081557
+      ComputersOnTables_69: 867306454
+      ComputersOnTables_7: 1346251590
+      ComputersOnTables_70: 316323748
+      ComputersOnTables_71: 1918764470
+      ComputersOnTables_72: -2132549927
+      ComputersOnTables_73: -1380886437
+      ComputersOnTables_74: 793905819
+      ComputersOnTables_75: 1998066684
+      ComputersOnTables_76: 264533947
+      ComputersOnTables_77: 951305610
+      ComputersOnTables_78: 455399420
+      ComputersOnTables_79: 1876559747
+      ComputersOnTables_8: 1178001346
+      ComputersOnTables_80: -1708882691
+      ComputersOnTables_81: 1177388219
+      ComputersOnTables_82: -773287981
+      ComputersOnTables_83: 785199853
+      ComputersOnTables_84: -573073593
+      ComputersOnTables_85: 1869685215
+      ComputersOnTables_86: 1867117494
+      ComputersOnTables_87: 1171950712
+      ComputersOnTables_88: -705388137
+      ComputersOnTables_89: 1044908870
+      ComputersOnTables_9: -1482441105
+      ComputersOnTables_90: 1610103659
+      ComputersOnTables_91: 321245618
+      ComputersOnTables_92: 1277456149
+      ComputersOnTables_93: -1647904035
+      ComputersOnTables_94: -1251197043
+      ComputersOnTables_95: 1676268694
+      ComputersOnTables_96: 314316384
+      ComputersOnTables_97: -1110272805
+      ComputersOnTables_98: 826057765
+      ComputersOnTables_99: -2030384330
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
