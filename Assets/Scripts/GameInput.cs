@@ -1,13 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class GameInput : MonoBehaviour
 {    
     public static GameInput Instance { get; private set; }
-
-
+    
     private PlayerInputActions playerInputActions;
 
     private void Awake()
@@ -16,7 +13,6 @@ public class GameInput : MonoBehaviour
 
         playerInputActions = new PlayerInputActions();
         playerInputActions.Enable();
-
     }
 
     public Vector2 GetMovementVector()
@@ -30,6 +26,4 @@ public class GameInput : MonoBehaviour
         Vector3 mousePos = Mouse.current.position.ReadValue();
         return mousePos;
     }
-
-    
 }
