@@ -1,0 +1,17 @@
+[33m74629c3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to 74629c34928b1472a05971ccf1f2e7a78e5eec2c
+[33ma034db3[m HEAD@{1}: checkout: moving from 8c8d6ab735cb79086ba10beec6dbb1db8ebbd49b to main
+[33m8c8d6ab[m HEAD@{2}: checkout: moving from main to 8c8d6ab735cb79086ba10beec6dbb1db8ebbd49b
+[33ma034db3[m HEAD@{3}: pull --ff --recurse-submodules --progress origin: Merge made by the 'ort' strategy.
+[33m74629c3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{4}: commit: 12
+[33m8c8d6ab[m HEAD@{5}: reset: moving to 8c8d6ab735cb79086ba10beec6dbb1db8ebbd49b
+[33maf5cea4[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{6}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33m8c8d6ab[m HEAD@{7}: reset: moving to 8c8d6ab735cb79086ba10beec6dbb1db8ebbd49b
+[33mb342619[m HEAD@{8}: reset: moving to HEAD@{1}
+[33maf5cea4[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{9}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33mb342619[m HEAD@{10}: revert: Revert "10 commit"
+[33m8c8d6ab[m HEAD@{11}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33m785efdf[m HEAD@{12}: reset: moving to HEAD
+[33m785efdf[m HEAD@{13}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33md1737d3[m HEAD@{14}: commit: 8 commit
+[33m5e0539f[m HEAD@{15}: commit: 7 commit
+[33m87f220d[m HEAD@{16}: clone: from https://github.com/Elesor/Game.git
