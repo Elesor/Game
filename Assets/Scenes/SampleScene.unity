@@ -829,6 +829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 122725579}
   - component: {fileID: 122725578}
+  - component: {fileID: 122725580}
   m_Layer: 0
   m_Name: GameControler
   m_TagString: Untagged
@@ -863,6 +864,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &122725580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122725577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a710d6966ba024fb2a2d0025fc50ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  inventoryPanel: {fileID: 1280020173}
+  slotPrefab: {fileID: 8938486827216178403, guid: 4c91bf688390daa4bb1fdf1498d663ed, type: 3}
+  slotCount: 8
+  itemPrefabs:
+  - {fileID: 6778355113654025661, guid: afa7a16b7a735494eb29952d08ea53dc, type: 3}
+  - {fileID: 506937324847064030, guid: e90803989140c0e4e9081c761656c549, type: 3}
 --- !u!1 &134154816
 GameObject:
   m_ObjectHideFlags: 0
@@ -8375,6 +8394,7 @@ GameObject:
   - component: {fileID: 1280020174}
   - component: {fileID: 1280020176}
   - component: {fileID: 1280020175}
+  - component: {fileID: 1280020177}
   m_Layer: 5
   m_Name: InventoryPage
   m_TagString: Untagged
@@ -8439,6 +8459,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280020173}
   m_CullTransparentMesh: 1
+--- !u!114 &1280020177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280020173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 300
+    m_Right: 230
+    m_Top: 140
+    m_Bottom: 140
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 300, y: 300}
+  m_Spacing: {x: 30, y: 30}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &1332895917
 GameObject:
   m_ObjectHideFlags: 0
