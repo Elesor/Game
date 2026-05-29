@@ -14,21 +14,29 @@ public class SaveController : MonoBehaviour
 
     public void SaveGame()
     {
-        // Находим игрока (предполагается, что игрок один)
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
 
         CinemachineCamera cinemachineCamera = FindObjectOfType<CinemachineCamera>();
         if (cinemachineCamera == null) return;
 
+        CinemachineConfiner2D confiner = cinemachineCamera.GetComponent<CinemachineConfiner2D>();
+
+        string boundaryName = "";
+        if (confiner != null && confiner.BoundingShape2D != null)
+        {
+            boundaryName = confiner.BoundingShape2D.gameObject.name;
+        }
+
         SaveData saveData = new SaveData
         {
             playerPosition = player.transform.position,
-            // Для CinemachineCamera нужно использовать правильное свойство
-            mapBoundary = cinemachineCamera.GetComponent<CinemachineConfiner2D>()?.BoundingShape2D?.gameObject.name ?? ""
+            mapBoundary = boundaryName
         };
 
         File.WriteAllText(saveLocation, JsonUtility.ToJson(saveData));
+        Debug.Log($"Game saved at {saveLocation}");
     }
 
     public void LoadGame()
@@ -37,14 +45,13 @@ public class SaveController : MonoBehaviour
         {
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
 
-            // Загружаем позицию игрока
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
                 player.transform.position = saveData.playerPosition;
+                Debug.Log($"Player position loaded: {saveData.playerPosition}");
             }
 
-            // Загружаем Boundary для камеры
             CinemachineCamera cinemachineCamera = FindObjectOfType<CinemachineCamera>();
             if (cinemachineCamera != null && !string.IsNullOrEmpty(saveData.mapBoundary))
             {
@@ -52,9 +59,27 @@ public class SaveController : MonoBehaviour
                 if (confiner != null)
                 {
                     GameObject boundaryObject = GameObject.Find(saveData.mapBoundary);
+                    if (boundaryObject == null)
+                    {
+                        boundaryObject = GameObject.Find("Camera Confiner");
+                    }
+
                     if (boundaryObject != null)
                     {
-                        confiner.BoundingShape2D = boundaryObject.GetComponent<PolygonCollider2D>();
+                        PolygonCollider2D polygonCollider = boundaryObject.GetComponent<PolygonCollider2D>();
+                        if (polygonCollider != null)
+                        {
+                            confiner.BoundingShape2D = polygonCollider;
+                            Debug.Log($"Boundary loaded: {boundaryObject.name}");
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Camera Confiner object has no PolygonCollider2D!");
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Boundary object '{saveData.mapBoundary}' not found!");
                     }
                 }
             }
