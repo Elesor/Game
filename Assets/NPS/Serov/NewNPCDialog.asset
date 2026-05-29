@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f44d7f534712104186f3dbf6106b7d3, type: 3}
+  m_Name: NewNPCDialog
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  npcName: Serov
+  npcPortrait: {fileID: 0}
+  dialoguelines:
+  - "\u041F\u0440\u0438\u0432\u0435\u0442!"
+  - "\u041D\u0443\u0436\u0435\u043D \u0437\u0430\u0447\u0451\u0442?"
+  autoProgressLines: 0100
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  voicesound: {fileID: 0}
+  voicepath: 1
