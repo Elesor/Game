@@ -21,6 +21,12 @@ public class Player:MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
+        if (PauseController.IsGamePaused)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
     }
 
     private void HandleMovement()

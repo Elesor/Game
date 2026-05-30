@@ -16,6 +16,18 @@ public class PlayerVisual : MonoBehaviour
 
     private void Update()
     {
+        if (PauseController.IsGamePaused)
+        {
+            if (animator != null)
+                animator.speed = 0f;
+            return;
+        }
+        else
+        {
+            if (animator != null && animator.speed == 0f)
+                animator.speed = 1f;
+        }
+
         animator.SetBool(IS_RUNNING, Player.Instance.IsRunning());
         ClickReverse();
     }
