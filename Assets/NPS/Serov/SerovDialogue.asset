@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f44d7f534712104186f3dbf6106b7d3, type: 3}
-  m_Name: NewNPCDialog
-  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  m_Name: SerovDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   npcName: Serov
-  npcPortrait: {fileID: 0}
+  npcPortrait: {fileID: 834743504, guid: de99e59f9be36f040b8d9043ad353821, type: 3}
   dialoguelines:
-  - "\u041F\u0440\u0438\u0432\u0435\u0442!"
-  - "\u041D\u0443\u0436\u0435\u043D \u0437\u0430\u0447\u0451\u0442?"
+  - Hello young Man!
+  - ewewrwrwr
   autoProgressLines: 0100
   autoProgressDelay: 1.5
   typingSpeed: 0.05

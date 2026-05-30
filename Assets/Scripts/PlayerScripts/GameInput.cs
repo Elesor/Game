@@ -1,35 +1,45 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class GameInput : MonoBehaviour
-{    
+{
     public static GameInput Instance { get; private set; }
 
+    private InputSystem_Actions inputActions;  // Изменено с PlayerInputActions
 
-    private PlayerInputActions playerInputActions;
+    public event System.Action OnInteractPerformed;
 
     private void Awake()
     {
         Instance = this;
+        inputActions = new InputSystem_Actions();  // Изменено
+        inputActions.Enable();
 
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Enable();
+        // Подписка на действие Interact
+        inputActions.Player.Interact.performed += OnInteract;
+    }
 
+    private void OnDestroy()
+    {
+        if (inputActions != null)
+        {
+            inputActions.Player.Interact.performed -= OnInteract;
+            inputActions.Disable();
+        }
+    }
+
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        OnInteractPerformed?.Invoke();
     }
 
     public Vector2 GetMovementVector()
     {
-        Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
-
-        return inputVector;
+        return inputActions.Player.Move.ReadValue<Vector2>();
     }
+
     public Vector3 GetMousePosition()
     {
-        Vector3 mousePos = Mouse.current.position.ReadValue();
-        return mousePos;
+        return Mouse.current.position.ReadValue();
     }
-
-    
 }
