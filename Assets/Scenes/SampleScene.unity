@@ -407,7 +407,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -480, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 200, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &24079582
 MonoBehaviour:
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: NPC Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8296,7 +8296,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430\u043F\u0438\u0448\u0438 \u0442\u0443\u0442 \u0447\u0451 \u0442\u043E"
+  m_text: Typing...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -40678,11 +40678,11 @@ PrefabInstance:
       objectReference: {fileID: 24079582}
     - target: {fileID: 4351578357844077488, guid: 5f55e40de18a7824fbea29835a2ceb3e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 21.74
       objectReference: {fileID: 0}
     - target: {fileID: 4351578357844077488, guid: 5f55e40de18a7824fbea29835a2ceb3e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.64
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 4351578357844077488, guid: 5f55e40de18a7824fbea29835a2ceb3e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -40718,7 +40718,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782620491315867256, guid: 5f55e40de18a7824fbea29835a2ceb3e, type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: Serov
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374653536882053574, guid: 5f55e40de18a7824fbea29835a2ceb3e, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374653536882053574, guid: 5f55e40de18a7824fbea29835a2ceb3e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 834743504, guid: de99e59f9be36f040b8d9043ad353821, type: 3}
+    - target: {fileID: 6374653536882053574, guid: 5f55e40de18a7824fbea29835a2ceb3e, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

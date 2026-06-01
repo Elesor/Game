@@ -40,7 +40,7 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = true;
         dialogueIndex = 0;
 
-        nameText.text = dialogueData.npcName;
+        nameText.SetText(dialogueData.npcName);
         portraitImage.sprite = dialogueData.npcPortrait;
 
         dialoguePanel.SetActive(true);
