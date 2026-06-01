@@ -3,6 +3,15 @@ using UnityEngine;
 public class DecanatPCScript : MonoBehaviour, IInteractable
 {
     public GameObject uiPanel;
+    private bool wasPausedBeforePanel = false; // Запоминаем, была ли игра уже на паузе
+
+    void Update()
+    {
+        if (uiPanel != null && uiPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            ClosePanel();
+        }
+    }
 
     public bool CanInteract()
     {
@@ -13,20 +22,47 @@ public class DecanatPCScript : MonoBehaviour, IInteractable
     {
         if (uiPanel != null)
         {
-            bool isOpening = !uiPanel.activeSelf;
+            bool isActive = !uiPanel.activeSelf;
 
-            uiPanel.SetActive(isOpening);
-
-            if (isOpening)
-            {
-                PauseController.Instance.PauseGame();
-            }
+            if (isActive)
+                OpenPanel();
             else
-            {
-                PauseController.Instance.ResumeGame();
-            }
-            Cursor.visible = isOpening;
-            Cursor.lockState = isOpening ? CursorLockMode.None : CursorLockMode.Locked;
+                ClosePanel();
         }
+    }
+
+    public void ClosePanel()
+    {
+        if (uiPanel != null && uiPanel.activeSelf)
+        {
+            uiPanel.SetActive(false);
+            SetCursorState(false);
+
+            // Возвращаем паузу в предыдущее состояние (если пауза была вызвана не этим окном)
+            if (!wasPausedBeforePanel)
+                PauseController.SetPause(false);
+        }
+    }
+
+    public void OpenPanel()
+    {
+        if (uiPanel != null && !uiPanel.activeSelf)
+        {
+            // Запоминаем, была ли игра уже на паузе до открытия панели
+            wasPausedBeforePanel = PauseController.IsGamePaused;
+
+            // Если игра не на паузе, ставим её на паузу
+            if (!wasPausedBeforePanel)
+                PauseController.SetPause(true);
+
+            uiPanel.SetActive(true);
+            SetCursorState(true);
+        }
+    }
+
+    private void SetCursorState(bool isVisible)
+    {
+        Cursor.visible = isVisible;
+        Cursor.lockState = isVisible ? CursorLockMode.None : CursorLockMode.Locked;
     }
 }
