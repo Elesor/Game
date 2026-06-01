@@ -11,7 +11,7 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!menuCanvas.activeSelf && PauseController.IsGamePaused)
             {
