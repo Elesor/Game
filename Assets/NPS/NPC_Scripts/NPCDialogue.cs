@@ -12,4 +12,14 @@ public class NPCDialogue : ScriptableObject
     public float typingSpeed = 0.05f;
     public AudioClip voicesound;
     public float voicepath = 1f;
+
+    public DialogueChoice[] choices;
+}
+[System.Serializable]
+
+public class DialogueChoice
+{
+    public int dialogueIndex;
+    public string[] choices;
+    public int[] nextDialogueIndexes;
 }

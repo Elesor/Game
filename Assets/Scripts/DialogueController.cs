@@ -2,10 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueConrtoller : MonoBehaviour
+public class DialogueController : MonoBehaviour
 {
-    public static DialogueConrtoller Instance {  get; private set; }
-    
+    public static DialogueController Instance { get; private set; }
+
     public GameObject dialoguePanel;
     public TMP_Text dialogueText, nameText;
     public Image portraitImage;

@@ -24,7 +24,7 @@ public class QuestUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void UpdateQuestUI()
+    public void UpdateQuestUI()
     {
      foreach(Transform child in questListContent)
         {
