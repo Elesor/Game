@@ -1,64 +1,86 @@
 using UnityEngine;
-using UnityEngine.AI;
-using KTIB.Utils;
+using System;
+using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private State startingState;
-    [SerializeField] private float roamingDistanceMax = 7f;
-    [SerializeField] private float roamingDistanceMin = 3f;
-    [SerializeField] private float roamingTimerMax = 2f;
+    public Transform target;
+    public float speed = 2f;
+    public int maxHealth = 2;
+    private int currentHealth;
 
-    private State state;
-    private float roamingTime;
-    private Vector3 roamPosition;
-    private Vector3 startingPosition;
-    private NavMeshAgent navMeshAgent;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
 
-    private enum State { 
-        Roaming,
-        Idle
-    }
+    public event Action OnEnemyDeath;
 
-    private void Start()
+    void Start()
     {
-        startingPosition = transform.position;
-    }
-    private void Awake()
-    {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        navMeshAgent.updateRotation = false;
-        navMeshAgent.updateUpAxis = false;
-        state = startingState;
-    }
+        currentHealth = maxHealth;
 
-    private void Update()
-    {
-        switch (state)
+        // Ищем SpriteRenderer на себе ИЛИ на любом дочернем объекте
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (spriteRenderer != null)
         {
-            default:
-            case State.Idle:
-                break;
-            case State.Roaming:
-                roamingTime -= Time.deltaTime;
-                if (roamingTime < 0)
-                {
-                    Roaming();
-                    roamingTime = roamingTimerMax;
-                }
-                break;
+            originalColor = spriteRenderer.color;
+            Debug.Log("SpriteRenderer найден на: " + spriteRenderer.gameObject.name);
+        }
+        else
+        {
+            Debug.LogWarning("У врага и его детей нет SpriteRenderer! Мигание цветом не будет работать.");
         }
     }
 
-    private void Roaming()
+    void Update()
     {
-        startingPosition = transform.position;
-        roamPosition = GetRoamingPosition();
-        navMeshAgent.SetDestination(roamPosition);
+        if (target == null) return;
+
+        Vector2 direction = (target.position - transform.position).normalized;
+        transform.position += (Vector3)direction * speed * Time.deltaTime;
     }
 
-    private Vector3 GetRoamingPosition()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        return startingPosition + KTIBUlils.GetRandomDir() * UnityEngine.Random.Range(roamingDistanceMin, roamingDistanceMax);
+        if (other.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject);
+            TakeDamage(1);
+        }
+        else if (other.CompareTag("Player"))
+        {
+            MiniGameManager manager = FindObjectOfType<MiniGameManager>();
+            if (manager != null)
+                manager.LoseLife();
+            Die();
+        }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        StartCoroutine(FlashRed());
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    IEnumerator FlashRed()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = originalColor;
+        }
+    }
+
+    void Die()
+    {
+        OnEnemyDeath?.Invoke();
+        Destroy(gameObject);
     }
 }
