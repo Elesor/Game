@@ -13,7 +13,7 @@ public class TabController : MonoBehaviour
 
     public void ActivateTab(int tabNo)
     {
-        for(int i = 0; i < pages.Length; i++)
+        for (int i = 0; i < pages.Length; i++)
         {
             pages[i].SetActive(false);
             tabImages[i].color = Color.grey;

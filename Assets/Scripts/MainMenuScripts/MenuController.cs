@@ -13,13 +13,28 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!menuCanvas.activeSelf && PauseController.IsGamePaused)
-            {
-                return;
-            }
-            menuCanvas.SetActive(!menuCanvas.activeSelf);
-            PauseController.SetPause(menuCanvas.activeSelf);
+            ToggleMenu();
         }
     }
 
+    private void ToggleMenu()
+    {
+        if (!menuCanvas.activeSelf && PauseController.IsGamePaused)
+        {
+            return;
+        }
+
+        bool newMenuState = !menuCanvas.activeSelf;
+
+        if (newMenuState)
+        {
+            menuCanvas.SetActive(true);
+            PauseController.Instance.PauseGame();
+        }
+        else
+        {
+            menuCanvas.SetActive(false);
+            PauseController.Instance.ResumeGame();
+        }
+    }
 }
