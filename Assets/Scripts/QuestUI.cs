@@ -9,21 +9,11 @@ public class QuestUI : MonoBehaviour
     public GameObject questEntryPrefab;
     public GameObject objectiveTextPrefab;
 
-    public Quest testQuest;
-    public int testQuestAmount;
-    private List<QuestProgress> testQuests = new();
-
-
     void Start()
     {
-        for(int i = 0; i < testQuestAmount; i++)
-        {
-            testQuests.Add(new QuestProgress(testQuest));
-        }
         UpdateQuestUI();
     }
 
-    // Update is called once per frame
     public void UpdateQuestUI()
     {
      foreach(Transform child in questListContent)
@@ -31,7 +21,7 @@ public class QuestUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-     foreach(var quest in testQuests)
+     foreach(var quest in QuestController.Instance.activeQuests)
         {
             GameObject entry = Instantiate(questEntryPrefab, questListContent);
             TMP_Text questNameText = entry.transform.Find("QuestNameText").GetComponent<TMP_Text>();
