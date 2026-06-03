@@ -6,14 +6,16 @@ using UnityEngine.UI;
 public class NPC : MonoBehaviour, IInteractable
 {
     public NPCDialogue dialogueData;
-    public GameObject dialoguePanel;
-    public TMP_Text dialogueText, nameText;
-    public Image portraitImage;
-
+    private DialogueConrtoller dialogueUI;
     private int dialogueIndex;
     private bool isTyping;
     private bool isDialogueActive;
 
+
+    private void Start()
+    {
+        dialogueUI = DialogueConrtoller.Instance;
+    }
     public bool CanInteract()
     {
         return !isDialogueActive;
@@ -40,10 +42,8 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive = true;
         dialogueIndex = 0;
 
-        nameText.SetText(dialogueData.npcName);
-        portraitImage.sprite = dialogueData.npcPortrait;
-
-        dialoguePanel.SetActive(true);
+        dialogueUI.SetNPCInfo(dialogueData.npcName, dialogueData.npcPortrait);
+        dialogueUI.ShowDialogueUI(true);
 
         if (!PauseController.IsGamePaused)
         {
@@ -58,7 +58,7 @@ public class NPC : MonoBehaviour, IInteractable
         if (isTyping)
         {
             StopAllCoroutines();
-            dialogueText.text = dialogueData.dialoguelines[dialogueIndex];
+            dialogueUI.SetDialogueText(dialogueData.dialoguelines[dialogueIndex]);
             isTyping = false;
         }
         else if (++dialogueIndex < dialogueData.dialoguelines.Length)
@@ -74,7 +74,7 @@ public class NPC : MonoBehaviour, IInteractable
     IEnumerator TypeLine()
     {
         isTyping = true;
-        dialogueText.text = "";
+        dialogueUI.SetDialogueText("");
 
         if (dialogueData.voicesound != null)
         {
@@ -83,7 +83,7 @@ public class NPC : MonoBehaviour, IInteractable
 
         foreach (char letter in dialogueData.dialoguelines[dialogueIndex])
         {
-            dialogueText.text += letter;
+            dialogueUI.SetDialogueText(dialogueUI.dialogueText.text += letter);
             yield return new WaitForSeconds(dialogueData.typingSpeed);
         }
 
@@ -101,8 +101,8 @@ public class NPC : MonoBehaviour, IInteractable
     {
         StopAllCoroutines();
         isDialogueActive = false;
-        dialogueText.text = "";
-        dialoguePanel.SetActive(false);
+        dialogueUI.SetDialogueText("");
+        dialogueUI.ShowDialogueUI(false);
 
         if (PauseController.IsGamePaused)
         {
