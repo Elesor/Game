@@ -17,7 +17,7 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
     public List<CodingTask> tasks;
     private int currentTaskIndex = 0;
     private bool isGameActive = false;
-    private bool wasPausedBeforeGame = false;
+    private bool wasUIModeActiveBefore = false;
 
     void Start()
     {
@@ -76,22 +76,22 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
     {
         if (codePanel == null || codePanel.activeSelf) return;
 
-        wasPausedBeforeGame = PauseController.IsGamePaused;
+        // Запоминаем, был ли уже активен UI режим
+        wasUIModeActiveBefore = PauseController.IsUIModeActive;
 
-        if (!wasPausedBeforeGame)
-            PauseController.SetPause(true);
+        // Включаем UI режим через PauseController (он отключит движение и покажет курсор)
+        if (!wasUIModeActiveBefore)
+        {
+            PauseController.Instance.EnableUIMode();
+        }
 
         codePanel.SetActive(true);
-
-        // Принудительно показываем курсор
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
 
         if (codeInput != null) codeInput.text = "";
         if (resultText != null) resultText.text = "";
         isGameActive = true;
 
-        Debug.Log("Панель открыта, курсор видим: " + Cursor.visible);
+        Debug.Log("Мини-игра открыта, UI режим активен");
     }
 
     public void CloseCodePanel()
@@ -100,17 +100,15 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
 
         codePanel.SetActive(false);
 
-        // Возвращаем паузу только если игра не была на паузе до открытия панели
-        if (!wasPausedBeforeGame)
-            PauseController.SetPause(false);
-
-        // Принудительно скрываем и блокируем курсор
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        // Выключаем UI режим только если его не было до открытия панели
+        if (!wasUIModeActiveBefore)
+        {
+            PauseController.Instance.DisableUIMode();
+        }
 
         isGameActive = false;
 
-        Debug.Log("Панель закрыта, курсор видим: " + Cursor.visible + ", locked: " + Cursor.lockState);
+        Debug.Log("Мини-игра закрыта, UI режим деактивирован");
     }
 
     void CheckCode()
@@ -119,7 +117,7 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
         {
             if (resultText != null)
             {
-                resultText.text = "❌ Ошибка: Нет загруженных задач!";
+                resultText.text = "Ошибка: Нет загруженных задач!";
                 resultText.color = Color.red;
             }
             return;
@@ -129,7 +127,7 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
         {
             if (resultText != null)
             {
-                resultText.text = "❌ Ошибка: Неверный индекс задачи!";
+                resultText.text = "Ошибка: Неверный индекс задачи!";
                 resultText.color = Color.red;
             }
             return;
@@ -144,7 +142,7 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
         {
             if (resultText != null)
             {
-                resultText.text = "❌ Ошибка: Текущая задача не определена!";
+                resultText.text = "Ошибка: Текущая задача не определена!";
                 resultText.color = Color.red;
             }
             return;
@@ -157,7 +155,7 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
         {
             if (isCorrect)
             {
-                resultText.text = "✅ Правильно! Задача решена!";
+                resultText.text = "Правильно! Задача решена!";
                 resultText.color = Color.green;
 
                 if (currentTaskIndex + 1 < tasks.Count)
@@ -167,13 +165,13 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
                 }
                 else
                 {
-                    resultText.text += "\n🎉 Поздравляю! Вы завершили все задачи!";
+                    resultText.text += "\nПоздравляю! Вы завершили все задачи!";
                     if (submitButton != null) submitButton.interactable = false;
                 }
             }
             else
             {
-                resultText.text = "❌ Неправильно. Попробуйте еще раз!";
+                resultText.text = "Неправильно. Попробуйте еще раз!";
                 resultText.color = Color.red;
             }
         }

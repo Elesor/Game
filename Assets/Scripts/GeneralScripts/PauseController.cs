@@ -4,8 +4,6 @@ public class PauseController : MonoBehaviour
 {
     public static PauseController Instance { get; private set; }
     public static bool IsGamePaused { get; private set; } = false;
-
-    // Новый флаг для UI режима (диалоги, инвентарь и т.д.)
     public static bool IsUIModeActive { get; private set; } = false;
 
     [SerializeField] private GameObject pauseMenuUI;
@@ -31,8 +29,26 @@ public class PauseController : MonoBehaviour
 
     private void Start()
     {
-        // Устанавливаем стандартное состояние для игры
+        // По умолчанию - игровой режим (курсор скрыт и заблокирован)
         SetGameCursorMode();
+    }
+
+    /// <summary>
+    /// Игровой режим курсора: скрыт и заблокирован в центре экрана
+    /// </summary>
+    private void SetGameCursorMode()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    /// <summary>
+    /// UI режим курсора: видимый и свободный
+    /// </summary>
+    private void SetUICursorMode()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void PauseGame()
@@ -41,7 +57,6 @@ public class PauseController : MonoBehaviour
 
         isPausing = true;
 
-        // Сохраняем состояние курсора
         previousCursorLockMode = Cursor.lockState;
         previousCursorVisibility = Cursor.visible;
 
@@ -51,9 +66,7 @@ public class PauseController : MonoBehaviour
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(true);
 
-        // Включаем курсор для меню паузы
         SetUICursorMode();
-
         IsUIModeActive = true;
 
         Debug.Log("Игра на паузе, UI режим активен");
@@ -74,43 +87,38 @@ public class PauseController : MonoBehaviour
 
         // Возвращаем игровой режим курсора
         SetGameCursorMode();
-
         IsUIModeActive = false;
 
         Debug.Log("Игра продолжена, игровой режим курсора");
         isPausing = false;
     }
 
-    // НОВЫЙ МЕТОД: Для диалогов и UI (без паузы времени)
+    /// <summary>
+    /// Включение UI режима (диалоги, инвентарь) без паузы времени
+    /// </summary>
     public void EnableUIMode()
     {
         if (IsUIModeActive) return;
 
-        // Сохраняем текущее состояние игры
         previousCursorLockMode = Cursor.lockState;
         previousCursorVisibility = Cursor.visible;
 
-        // Отключаем движение
         DisablePlayerMovement(true);
-
-        // Включаем курсор для UI
         SetUICursorMode();
 
         IsUIModeActive = true;
-        // ВРЕМЯ НЕ ОСТАНАВЛИВАЕМ! Time.timeScale остается 1
 
         Debug.Log("UI режим активирован (диалог, инвентарь)");
     }
 
-    // НОВЫЙ МЕТОД: Выход из режима UI
+    /// <summary>
+    /// Выключение UI режима
+    /// </summary>
     public void DisableUIMode()
     {
         if (!IsUIModeActive) return;
 
-        // Включаем движение обратно
         DisablePlayerMovement(false);
-
-        // Возвращаем игровой режим курсора
         SetGameCursorMode();
 
         IsUIModeActive = false;
@@ -138,21 +146,6 @@ public class PauseController : MonoBehaviour
         Time.timeScale = pause ? 0f : 1f;
     }
 
-    // Устанавливает режим курсора для игры (скрытый и заблокированный)
-    private void SetGameCursorMode()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
-    // Устанавливает режим курсора для UI (видимый и свободный)
-    private void SetUICursorMode()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
-
-    // Опционально: метод для принудительного сброса
     public void ResetToGameMode()
     {
         if (!IsGamePaused && !IsUIModeActive)

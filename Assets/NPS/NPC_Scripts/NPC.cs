@@ -11,7 +11,7 @@ public class NPC : MonoBehaviour, IInteractable
     private bool isTyping;
     private bool isDialogueActive;
 
-    private enum QuestState {NotStarted, InProgress, Completed }
+    private enum QuestState { NotStarted, InProgress, Completed }
     private QuestState questState = QuestState.NotStarted;
 
     private void Start()
@@ -175,7 +175,12 @@ public class NPC : MonoBehaviour, IInteractable
     {
         StopAllCoroutines();
         isDialogueActive = false;
-        dialogueUI.SetDialogueText("");
-        dialogueUI.ShowDialogueUI(false);
+
+        // Добавьте проверку на null
+        if (dialogueUI != null)
+        {
+            dialogueUI.SetDialogueText("");
+            dialogueUI.ShowDialogueUI(false);
+        }
     }
 }
