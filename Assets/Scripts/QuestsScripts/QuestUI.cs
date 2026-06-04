@@ -16,12 +16,15 @@ public class QuestUI : MonoBehaviour
 
     public void UpdateQuestUI()
     {
-     foreach(Transform child in questListContent)
+        // Очищаем контейнер
+        foreach (Transform child in questListContent)
         {
             Destroy(child.gameObject);
         }
 
-     foreach(var quest in QuestController.Instance.activeQuests)
+        // Добавляем квесты в том порядке, в котором они были получены
+        // (первый добавленный квест будет сверху)
+        foreach (var quest in QuestController.Instance.activeQuests)
         {
             GameObject entry = Instantiate(questEntryPrefab, questListContent);
             TMP_Text questNameText = entry.transform.Find("QuestNameText").GetComponent<TMP_Text>();
@@ -29,7 +32,7 @@ public class QuestUI : MonoBehaviour
 
             questNameText.text = quest.quest.questName;
 
-            foreach(var objective in quest.objectives)
+            foreach (var objective in quest.objectives)
             {
                 GameObject objTextGO = Instantiate(objectiveTextPrefab, objectiveList);
                 TMP_Text objText = objTextGO.GetComponent<TMP_Text>();
