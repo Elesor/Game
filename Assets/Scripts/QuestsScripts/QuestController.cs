@@ -14,7 +14,8 @@ public class QuestController : MonoBehaviour
     [Header("Quest Completion Dialog")]
     public DialogueController dialogueController;
     public string completionDialogTitle = "Система";
-    public string completionDialogMessage = "Квест выполнен! Теперь нужно поговорить с Богданом в компьютерном классе.";
+    public string completionDialogMessage = "Студент: Станислав Загидулин. Активный участник секции программирования. Часто пропускает пары без причины." +
+        "(секция программирования находится в компьютерной аудитории)";
 
     private void Awake()
     {
