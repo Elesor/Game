@@ -29,12 +29,11 @@ public class Arrow : MonoBehaviour
 
         rectTransform.anchoredPosition += Vector2.down * speed * Time.deltaTime;
 
-        // Удаляем только если улетела далеко за зону
         if (rectTransform.anchoredPosition.y < -1000f)
         {
             if (gameManager != null)
-                gameManager.MissArrow();
-            DestroyArrow();
+                gameManager.RemoveArrow(this);
+            Destroy(gameObject);
         }
     }
 
