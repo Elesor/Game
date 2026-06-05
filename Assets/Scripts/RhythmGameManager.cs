@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class RhythmGameManager : MonoBehaviour
 {
-    [Header("Настройки")]
+    [Header("Настройки игры")]
     public float gameDuration = 60f;
     public int targetScore = 10;
     public float spawnInterval = 1.5f;
@@ -13,13 +13,12 @@ public class RhythmGameManager : MonoBehaviour
     public float hitZoneY = -200f;
     public float perfectThreshold = 50f;
     public float goodThreshold = 100f;
-    private bool isPanelActive = false;  // добавить в начало класса
-    private bool isExiting = false;
-    private float lastHitTime = 0f;
-    private float hitCooldown = 0.15f;
 
     [Header("Зоны")]
     public RectTransform spawnArea;
+    public Image hitZoneVisual;
+    public Color normalColor = new Color(0f, 1f, 0f, 0.3f);
+    public Color hitColor = new Color(1f, 1f, 0f, 0.5f);
 
     [Header("Префабы и спрайты")]
     public GameObject arrowPrefab;
@@ -29,7 +28,6 @@ public class RhythmGameManager : MonoBehaviour
     public Sprite rightArrowSprite;
 
     [Header("UI")]
-    public GameObject rhythmGameCanvas;
     public Text scoreText;
     public Text timerText;
     public Text feedbackText;
@@ -37,17 +35,10 @@ public class RhythmGameManager : MonoBehaviour
     public Text resultText;
     public Button restartButton;
     public Button exitButton;
-
-    [Header("Визуал зоны попадания")]
-    public Image hitZoneImage;
-    public Color hitZoneNormalColor = new Color(0f, 1f, 0f, 0.3f);
-    public Color hitZoneActiveColor = new Color(1f, 1f, 0f, 0.5f);
-    public float hitZoneFlashDuration = 0.1f;
+    public GameObject rhythmGameCanvas;
 
     [Header("Визуал обратной связи")]
-    public Text hitFeedbackText;  // отдельный текст для всплывающих надписей
-    public float feedbackDisplayTime = 0.5f;
-    private Coroutine feedbackCoroutine;
+    public Text hitFeedbackText;
 
     private int currentScore = 0;
     private float currentTime;
@@ -55,8 +46,11 @@ public class RhythmGameManager : MonoBehaviour
     private List<Arrow> activeArrows = new List<Arrow>();
     private Coroutine spawnCoroutine;
     private float feedbackTimer = 0f;
-    private Player playerMovement;
-    private Coroutine hitZoneFlashCoroutine;
+    private Coroutine feedbackCoroutine;
+    private bool isExiting = false;
+    private bool isPanelActive = false;
+    private float lastHitTime = 0f;
+    private float hitCooldown = 0.15f;
 
     public System.Action<bool> OnGameEnd;
 
@@ -70,21 +64,6 @@ public class RhythmGameManager : MonoBehaviour
 
     void Start()
     {
-        // Находим игрока и его движение
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            playerMovement = player.GetComponent<Player>();
-            if (playerMovement == null)
-                Debug.LogError("PlayerMovement не найден на игроке!");
-            else
-                Debug.Log("PlayerMovement найден");
-        }
-        else
-        {
-            Debug.LogError("Player не найден с тегом 'Player'!");
-        }
-
         if (resultPanel != null)
             resultPanel.SetActive(false);
 
@@ -95,16 +74,16 @@ public class RhythmGameManager : MonoBehaviour
 
         if (feedbackText != null)
             feedbackText.text = "";
+        if (hitFeedbackText != null)
+            hitFeedbackText.gameObject.SetActive(false);
 
-        if (hitZoneImage != null)
-            hitZoneImage.color = hitZoneNormalColor;
+        if (hitZoneVisual != null)
+            hitZoneVisual.color = normalColor;
     }
 
     void Update()
     {
-        // Если панель открыта - НИЧЕГО НЕ ДЕЛАЕМ
         if (isPanelActive) return;
-
         if (!isGameActive) return;
 
         currentTime -= Time.deltaTime;
@@ -131,23 +110,33 @@ public class RhythmGameManager : MonoBehaviour
         }
     }
 
+    void FlashHitZone()
+    {
+        if (hitZoneVisual == null) return;
+        StartCoroutine(FlashHitZoneCoroutine());
+    }
+
+    IEnumerator FlashHitZoneCoroutine()
+    {
+        hitZoneVisual.color = hitColor;
+        yield return new WaitForSeconds(0.1f);
+        hitZoneVisual.color = normalColor;
+    }
+
     void CheckHit(Arrow.ArrowDirection pressedDir)
     {
-        // ЗАЩИТА ОТ СПАМА
-        if (Time.time - lastHitTime < hitCooldown) return;
-
         FlashHitZone();
+
+        if (Time.time - lastHitTime < hitCooldown) return;
 
         Arrow targetArrow = null;
         float closestDistance = float.MaxValue;
 
-        // Ищем ближайшую стрелку в зоне попадания
         foreach (Arrow arrow in activeArrows)
         {
             if (arrow != null && !arrow.isDestroyed && arrow.direction == pressedDir)
             {
                 float distance = Mathf.Abs(arrow.GetYPosition() - hitZoneY);
-                // Игнорируем слишком далёкие стрелки
                 if (distance < 150f && distance < closestDistance)
                 {
                     closestDistance = distance;
@@ -158,7 +147,7 @@ public class RhythmGameManager : MonoBehaviour
 
         if (targetArrow != null && !targetArrow.isDestroyed)
         {
-            lastHitTime = Time.time;  // ТОЛЬКО ЕСЛИ НАШЛИ СТРЕЛКУ
+            lastHitTime = Time.time;
 
             if (closestDistance <= perfectThreshold)
             {
@@ -178,7 +167,6 @@ public class RhythmGameManager : MonoBehaviour
             {
                 ShowFeedback("MISS!", Color.red);
                 ShowHitFeedback("MISS!", Color.red);
-                // НЕ УДАЛЯЕМ СТРЕЛКУ
             }
         }
         else
@@ -188,57 +176,12 @@ public class RhythmGameManager : MonoBehaviour
         }
     }
 
-    void FlashHitZone()
-    {
-        if (hitZoneImage == null) return;
-
-        if (hitZoneFlashCoroutine != null)
-            StopCoroutine(hitZoneFlashCoroutine);
-        hitZoneFlashCoroutine = StartCoroutine(FlashHitZoneCoroutine());
-    }
-
-    IEnumerator FlashHitZoneCoroutine()
-    {
-        hitZoneImage.color = hitZoneActiveColor;
-        yield return new WaitForSeconds(hitZoneFlashDuration);
-        hitZoneImage.color = hitZoneNormalColor;
-    }
-
-    void AddScore(int points)
-    {
-        currentScore += points;
-        UpdateScoreUI();
-
-        if (currentScore >= targetScore)
-        {
-            EndGame(true);
-        }
-    }
-
-    public void MissArrow()
-    {
-        ShowFeedback("MISS!", Color.red);
-    }
-
-    void ShowFeedback(string text, Color color)
-    {
-        if (feedbackText != null)
-        {
-            feedbackText.text = text;
-            feedbackText.color = color;
-            feedbackTimer = 0.5f;
-        }
-    }
-
     void ShowHitFeedback(string text, Color color)
     {
         if (hitFeedbackText == null) return;
 
-        // Останавливаем предыдущую анимацию
         if (feedbackCoroutine != null)
             StopCoroutine(feedbackCoroutine);
-
-        // Запускаем новую
         feedbackCoroutine = StartCoroutine(DisplayHitFeedback(text, color));
     }
 
@@ -248,7 +191,6 @@ public class RhythmGameManager : MonoBehaviour
         hitFeedbackText.color = color;
         hitFeedbackText.gameObject.SetActive(true);
 
-        // Анимация увеличения
         Vector3 originalScale = hitFeedbackText.transform.localScale;
         hitFeedbackText.transform.localScale = Vector3.one * 0.5f;
 
@@ -262,10 +204,8 @@ public class RhythmGameManager : MonoBehaviour
         }
 
         hitFeedbackText.transform.localScale = Vector3.one * 1.2f;
+        yield return new WaitForSeconds(0.5f);
 
-        yield return new WaitForSeconds(feedbackDisplayTime);
-
-        // Анимация исчезновения
         timer = 0f;
         Color startColor = color;
         while (timer < 0.2f)
@@ -281,6 +221,27 @@ public class RhythmGameManager : MonoBehaviour
         hitFeedbackText.color = color;
     }
 
+    void AddScore(int points)
+    {
+        currentScore += points;
+        UpdateScoreUI();
+
+        if (currentScore >= targetScore)
+        {
+            EndGame(true);
+        }
+    }
+
+    void ShowFeedback(string text, Color color)
+    {
+        if (feedbackText != null)
+        {
+            feedbackText.text = text;
+            feedbackText.color = color;
+            feedbackTimer = 0.5f;
+        }
+    }
+
     void UpdateScoreUI()
     {
         if (scoreText != null)
@@ -293,52 +254,20 @@ public class RhythmGameManager : MonoBehaviour
             timerText.text = "Время: " + Mathf.CeilToInt(currentTime);
     }
 
-    private void DisablePlayerMovement()
-    {
-        if (playerMovement != null)
-        {
-            playerMovement.enabled = false;
-            Debug.Log("Движение игрока ВЫКЛЮЧЕНО");
-        }
-        else
-        {
-            Debug.LogError("playerMovement = null! Не могу отключить движение!");
-        }
-    }
-
-    private void EnablePlayerMovement()
-    {
-        if (playerMovement != null)
-        {
-            playerMovement.enabled = true;
-            Debug.Log("Движение игрока ВКЛЮЧЕНО");
-        }
-        else
-        {
-            Debug.LogError("playerMovement = null! Не могу включить движение!");
-        }
-    }
-
     public void StartGame()
     {
         Debug.Log("=== StartGame вызван ===");
 
-        // Сбрасываем флаг выхода
+        // Сбрасываем флаги
         isExiting = false;
+        isPanelActive = false;
 
-        // Отключаем движение игрока
-        DisablePlayerMovement();
-
-        // Скрываем панель результата, если она была открыта
-        if (resultPanel != null)
-            resultPanel.SetActive(false);
-
-        // Сбрасываем очки и время
+        // Сбрасываем игровые переменные
         currentScore = 0;
         currentTime = gameDuration;
         isGameActive = true;
 
-        // Очищаем старые стрелки
+        // Удаляем все старые стрелки
         foreach (Arrow arrow in activeArrows)
         {
             if (arrow != null)
@@ -350,13 +279,41 @@ public class RhythmGameManager : MonoBehaviour
         if (spawnCoroutine != null)
             StopCoroutine(spawnCoroutine);
 
-        UpdateScoreUI();
-        UpdateTimerUI();
+        // ПРИНУДИТЕЛЬНО ОБНОВЛЯЕМ UI
+        if (scoreText != null)
+        {
+            scoreText.text = "Счёт: 0 / " + targetScore;
+            Debug.Log("ScoreText обновлён: " + scoreText.text);
+        }
+        else
+        {
+            Debug.LogError("scoreText = null! Заполни ссылку в инспекторе!");
+        }
+
+        if (timerText != null)
+        {
+            timerText.text = "Время: " + gameDuration;
+            Debug.Log("TimerText обновлён: " + timerText.text);
+        }
+        else
+        {
+            Debug.LogError("timerText = null! Заполни ссылку в инспекторе!");
+        }
+
+        if (feedbackText != null)
+            feedbackText.text = "";
+
+        if (hitFeedbackText != null)
+            hitFeedbackText.gameObject.SetActive(false);
+
+        // Скрываем панель результата, если она была открыта
+        if (resultPanel != null)
+            resultPanel.SetActive(false);
 
         // Запускаем спавн стрелок
         spawnCoroutine = StartCoroutine(SpawnArrows());
 
-        Debug.Log("=== StartGame завершён, isGameActive = " + isGameActive);
+        Debug.Log("=== StartGame завершён, isGameActive = " + isGameActive + " ===");
     }
 
     IEnumerator SpawnArrows()
@@ -419,15 +376,11 @@ public class RhythmGameManager : MonoBehaviour
         if (isExiting) return;
         isExiting = true;
 
-        Debug.Log("=== EndGame вызван, win = " + win + " ===");
-
         isGameActive = false;
 
-        // Останавливаем спавн
         if (spawnCoroutine != null)
             StopCoroutine(spawnCoroutine);
 
-        // Удаляем все стрелки
         foreach (Arrow arrow in activeArrows)
         {
             if (arrow != null)
@@ -435,54 +388,50 @@ public class RhythmGameManager : MonoBehaviour
         }
         activeArrows.Clear();
 
-        // ПОКАЗЫВАЕМ ПАНЕЛЬ И БЛОКИРУЕМ ВСЁ
         if (resultPanel != null)
         {
             resultPanel.SetActive(true);
-            isPanelActive = true;  // <- ЭТО БЛОКИРУЕТ ОБРАБОТКУ В UPDATE
+            isPanelActive = true;
+
+            if (resultText != null)
+            {
+                if (win)
+                    resultText.text = "ПОБЕДА!";
+                else
+                    resultText.text = "ПОРАЖЕНИЕ!";
+                resultText.color = win ? Color.yellow : Color.red;
+            }
         }
 
-        // Вызываем событие
         if (OnGameEnd != null)
             OnGameEnd(win);
     }
 
     public void RestartGame()
     {
-        Debug.Log("=== RestartGame вызван ===");
-
-        // РАЗБЛОКИРУЕМ
         isPanelActive = false;
         isExiting = false;
 
-        // Скрываем панель
         if (resultPanel != null)
             resultPanel.SetActive(false);
 
-        // Очищаем текст
         if (feedbackText != null)
             feedbackText.text = "";
         if (hitFeedbackText != null)
             hitFeedbackText.gameObject.SetActive(false);
 
-        // Запускаем игру
         StartGame();
     }
 
     public void ExitGame()
     {
-        Debug.Log("=== ExitGame вызван ===");
-
-        // РАЗБЛОКИРУЕМ ВСЁ
         isPanelActive = false;
         isExiting = false;
         isGameActive = false;
 
-        // Останавливаем спавн
         if (spawnCoroutine != null)
             StopCoroutine(spawnCoroutine);
 
-        // Удаляем стрелки
         foreach (Arrow arrow in activeArrows)
         {
             if (arrow != null)
@@ -490,15 +439,13 @@ public class RhythmGameManager : MonoBehaviour
         }
         activeArrows.Clear();
 
-        // Включаем движение
-        EnablePlayerMovement();
-
-        // Скрываем панель
         if (resultPanel != null)
             resultPanel.SetActive(false);
 
-        // Выключаем Canvas
         if (rhythmGameCanvas != null)
             rhythmGameCanvas.SetActive(false);
+
+        if (OnGameEnd != null)
+            OnGameEnd(false);
     }
 }

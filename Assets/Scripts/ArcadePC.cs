@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public class ArcadePC : MonoBehaviour, IInteractable
+public class ArcadePC : MonoBehaviour
 {
     public GameObject rhythmGameCanvas;
     public RhythmGameManager rhythmGameManager;
+    public KeyCode interactKey = KeyCode.E;
 
+    private bool isPlayerInRange = false;
     private bool isGameActive = false;
 
     void Start()
@@ -18,6 +20,30 @@ public class ArcadePC : MonoBehaviour, IInteractable
         }
     }
 
+    void Update()
+    {
+        if (isPlayerInRange && Input.GetKeyDown(interactKey) && !isGameActive)
+        {
+            StartRhythmGame();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+        }
+    }
+
     void OnDestroy()
     {
         if (rhythmGameManager != null)
@@ -26,22 +52,17 @@ public class ArcadePC : MonoBehaviour, IInteractable
         }
     }
 
-    public bool CanInteract()
-    {
-        return !isGameActive;
-    }
-
-    public void Interact()
-    {
-        if (!isGameActive)
-        {
-            StartRhythmGame();
-        }
-    }
-
     public void StartRhythmGame()
     {
         isGameActive = true;
+
+        // Отключаем движение игрока
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Player pm = player.GetComponent<Player>();
+            if (pm != null) pm.enabled = false;
+        }
 
         if (rhythmGameCanvas != null)
             rhythmGameCanvas.SetActive(true);
@@ -52,21 +73,22 @@ public class ArcadePC : MonoBehaviour, IInteractable
 
     void OnRhythmGameEnd(bool win)
     {
-        Debug.Log("=== OnRhythmGameEnd вызван, win = " + win + " ===");
         isGameActive = false;
 
-        // НЕ ВЫКЛЮЧАЕМ CANVAS СРАЗУ!
-        // rhythmGameCanvas.SetActive(false); // ← ЗАКОММЕНТИРОВАТЬ ИЛИ УДАЛИТЬ
+        // Включаем движение игрока
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Player pm = player.GetComponent<Player>();
+            if (pm != null) pm.enabled = true;
+        }
+
+        if (rhythmGameCanvas != null)
+            rhythmGameCanvas.SetActive(false);
 
         if (win)
         {
-            Debug.Log("Ритм-игра пройдена! Можно разблокировать награду");
+            Debug.Log("Ритм-игра пройдена!");
         }
-    }
-
-    public void CloseGame()
-    {
-        if (rhythmGameCanvas != null)
-            rhythmGameCanvas.SetActive(false);
     }
 }
