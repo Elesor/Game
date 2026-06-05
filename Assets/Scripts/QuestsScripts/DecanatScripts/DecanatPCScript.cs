@@ -49,11 +49,11 @@ public class DecanatPCScript : MonoBehaviour, IInteractable
         if (uiPanel != null && !uiPanel.activeSelf)
         {
             // Запоминаем, была ли игра уже на паузе до открытия панели
-            wasPausedBeforePanel = PauseController.IsGamePaused;
+            //wasPausedBeforePanel = PauseController.IsGamePaused;
 
             // Если игра не на паузе, ставим её на паузу
-            if (!wasPausedBeforePanel)
-                PauseController.SetPause(true);
+            //if (!wasPausedBeforePanel)
+             //   PauseController.SetPause(true);
 
             uiPanel.SetActive(true);
             SetCursorState(true);
