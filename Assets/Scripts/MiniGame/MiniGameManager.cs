@@ -31,11 +31,19 @@ public class MiniGameManager : MonoBehaviour
     private bool isMinigameActive = false;
     private int totalWaves = 5;
 
+    // Флаг для предотвращения многократного обновления квеста
+    private bool questCompletedTriggered = false;
+
     void Start()
     {
         gameUIPanel.SetActive(false);
-        playerShoot = player.GetComponent<PlayerShoot>();
-        playerShoot.DisableShooting();
+
+        if (player != null)
+        {
+            playerShoot = player.GetComponent<PlayerShoot>();
+            if (playerShoot != null)
+                playerShoot.DisableShooting();
+        }
 
         if (arenaZone != null)
             arenaZone.SetActive(false);
@@ -52,6 +60,7 @@ public class MiniGameManager : MonoBehaviour
     IEnumerator TransitionToArena()
     {
         isMinigameActive = true;
+        questCompletedTriggered = false; // Сбрасываем флаг при новом запуске
 
         if (player != null && arenaSpawnPoint != null)
             player.transform.position = arenaSpawnPoint.position;
@@ -70,7 +79,9 @@ public class MiniGameManager : MonoBehaviour
         score = 0;
         currentWave = 1;
         gameUIPanel.SetActive(true);
-        playerShoot.EnableShooting();
+
+        if (playerShoot != null)
+            playerShoot.EnableShooting();
 
         UpdateWaveUI();
         StartWave();
@@ -137,7 +148,7 @@ public class MiniGameManager : MonoBehaviour
             scoreText.text = "Очки: " + score;
     }
 
-    void EndMinigame(bool win)
+    public void EndMinigame(bool win)
     {
         StartCoroutine(TransitionFromArena(win));
     }
@@ -149,11 +160,12 @@ public class MiniGameManager : MonoBehaviour
         if (floatingMessage != null)
         {
             if (win)
-                floatingMessage.ShowMessage("КОМПЮТЕР ДОСТУПЕН!", 2f);
+                floatingMessage.ShowMessage("КОМПЬЮТЕР ДОСТУПЕН!", 2f);
             else
                 floatingMessage.ShowMessage("ВЫ ПРОИГРАЛИ!", 2f);
         }
 
+        // Удаляем всех врагов
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
             Destroy(enemy);
@@ -176,17 +188,55 @@ public class MiniGameManager : MonoBehaviour
             arenaCamera.gameObject.SetActive(false);
         }
 
-        // Убираем вызов UnlockComputer
-        // if (win)
-        // {
-        //     PopupTrigger popup = player.GetComponent<PopupTrigger>();
-        //     if (popup != null)
-        //     {
-        //         popup.UnlockComputer();
-        //     }
-        // }
+        // ===== ОБНОВЛЯЕМ КВЕСТ ПРИ ПОБЕДЕ =====
+        if (win && !questCompletedTriggered)
+        {
+            questCompletedTriggered = true;
+            UpdateQuestProgress();
+        }
 
         yield return new WaitForSeconds(2.2f);
+    }
+
+    /// <summary>
+    /// Обновляет прогресс квеста после победы в мини-игре
+    /// </summary>
+    private void UpdateQuestProgress()
+    {
+        // Пытаемся получить QuestController
+        QuestController controller = QuestController.Instance;
+
+        // Если Instance == null, ищем на сцене вручную
+        if (controller == null)
+        {
+            controller = FindObjectOfType<QuestController>();
+
+            if (controller == null)
+            {
+                Debug.LogError("❌ QuestController НЕ НАЙДЕН! Добавьте его на сцену.");
+                Debug.LogError("Совет: создайте пустой GameObject -> QuestController -> добавьте скрипт");
+                return;
+            }
+
+            Debug.Log("✅ QuestController найден через FindObjectOfType!");
+        }
+
+        string questID = "GoDecanat2a8b7b32-9d1f-4f36-87e9-927941860654";
+        string objectiveID = "go_to_decanat";
+
+        if (controller.IsQuestActive(questID))
+        {
+            controller.UpdateObjective(questID, objectiveID, 1);
+            Debug.Log($"✅ Квест обновлён: {questID}");
+        }
+        else
+        {
+            Debug.Log($"⚠️ Квест {questID} не активен. Активные квесты:");
+            foreach (var q in controller.activeQuests)
+            {
+                Debug.Log($"   - {q.quest.questID}");
+            }
+        }
     }
 
     public void LoseLife()

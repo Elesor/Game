@@ -6,15 +6,27 @@ public class QuestController : MonoBehaviour
 {
     public static QuestController Instance { get; private set; }
     public List<QuestProgress> activeQuests = new();
-    public List<Quest> completedQuests = new(); // НОВОЕ: завершённые квесты
+    public List<Quest> completedQuests = new();
     private QuestUI questUI;
 
-    public System.Action<QuestProgress> OnQuestProgressChanged; // НОВОЕ: событие
+    public System.Action<QuestProgress> OnQuestProgressChanged;
+
+    [Header("Quest Completion Dialog")]
+    public DialogueController dialogueController;
+    public string completionDialogTitle = "Система";
+    public string completionDialogMessage = "Квест выполнен! Теперь нужно поговорить с Богданом в компьютерном классе.";
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         questUI = FindObjectOfType<QuestUI>();
     }
@@ -26,13 +38,19 @@ public class QuestController : MonoBehaviour
 
         activeQuests.Add(new QuestProgress(quest));
         questUI?.UpdateQuestUI();
+        Debug.Log($"Квест принят: {quest.questName}");
     }
 
-    // НОВЫЙ МЕТОД: обновить прогресс цели
     public void UpdateObjective(string questID, string objectiveID, int amount = 1)
     {
+        Debug.Log($"UpdateObjective вызван: questID={questID}, objectiveID={objectiveID}, amount={amount}");
+
         QuestProgress progress = activeQuests.Find(q => q.quest.questID == questID);
-        if (progress == null) return;
+        if (progress == null)
+        {
+            Debug.LogWarning($"Квест {questID} не найден в активных!");
+            return;
+        }
 
         foreach (var objective in progress.objectives)
         {
@@ -42,7 +60,7 @@ public class QuestController : MonoBehaviour
                 if (objective.currentAmount > objective.requiredAmount)
                     objective.currentAmount = objective.requiredAmount;
 
-                Debug.Log($"Objective updated: {objectiveID} ({objective.currentAmount}/{objective.requiredAmount})");
+                Debug.Log($"Objective обновлён: {objectiveID} ({objective.currentAmount}/{objective.requiredAmount})");
                 break;
             }
         }
@@ -50,14 +68,12 @@ public class QuestController : MonoBehaviour
         questUI?.UpdateQuestUI();
         OnQuestProgressChanged?.Invoke(progress);
 
-        // Проверяем, завершился ли квест
         if (progress.IsCompleted)
         {
             CompleteQuest(questID);
         }
     }
 
-    // НОВЫЙ МЕТОД: завершить квест
     public void CompleteQuest(string questID)
     {
         QuestProgress progress = activeQuests.Find(q => q.quest.questID == questID);
@@ -66,37 +82,82 @@ public class QuestController : MonoBehaviour
         activeQuests.Remove(progress);
         completedQuests.Add(progress.quest);
 
-        Debug.Log($"Quest completed: {progress.quest.questName}");
+        Debug.Log($"Квест завершён: {progress.quest.questName}");
 
-        // Награда за квест (можно расширить)
         GiveQuestReward(progress.quest);
+
+        // Вызываем обработку завершения квеста
+        OnQuestCompleted(progress.quest);
 
         questUI?.UpdateQuestUI();
     }
 
-    // НОВЫЙ МЕТОД: награда за квест
+    /// <summary>
+    /// Обработка завершения квеста: показ диалога и выдача следующего квеста
+    /// </summary>
+    private void OnQuestCompleted(Quest completedQuest)
+    {
+        // Проверяем, что это квест "Зайти в деканат" (замените на ваш ID)
+        if (completedQuest.questID == "GoDecanat2a8b7b32-9d1f-4f36-87e9-927941860654")
+        {
+            // Показываем диалоговое окно
+            ShowCompletionDialog();
+
+            // Выдаём следующий квест
+            Quest nextQuest = GetQuestByID("talk_to_bogdan");
+            if (nextQuest != null)
+            {
+                AcceptQuest(nextQuest);
+                Debug.Log($"Выдан следующий квест: {nextQuest.questName}");
+            }
+            else
+            {
+                Debug.LogWarning("Следующий квест (talk_to_bogdan) не найден! Создайте его в папке Resources/Quests");
+            }
+        }
+    }
+
+    /// <summary>
+    /// Показывает диалоговое окно с сообщением о завершении квеста
+    /// </summary>
+    private void ShowCompletionDialog()
+    {
+        if (dialogueController == null)
+        {
+            Debug.LogWarning("DialogueController не назначен в QuestController! Диалог не будет показан.");
+            return;
+        }
+
+        dialogueController.ShowDialogueUI(true);
+        dialogueController.SetNPCInfo(completionDialogTitle, null);
+        dialogueController.SetDialogueText(completionDialogMessage);
+
+        dialogueController.ClearChoice();
+
+        dialogueController.CreateChoiceButton("Понятно", () => {
+            dialogueController.ShowDialogueUI(false);
+        });
+    }
+
     private void GiveQuestReward(Quest quest)
     {
+        Debug.Log($"Награда за квест {quest.questName} получена!");
         // Здесь можно добавить награды: опыт, предметы, деньги
-        Debug.Log($"Reward for {quest.questName} received!");
-
-        // Пример: выдать предмет из quest.rewardItem
         // InventoryController.Instance.AddItem(quest.rewardItem);
     }
 
-    // НОВЫЙ МЕТОД: сдать квест вручную (через диалог с NPC)
     public bool SubmitQuest(string questID)
     {
         QuestProgress progress = activeQuests.Find(q => q.quest.questID == questID);
         if (progress == null)
         {
-            Debug.Log("Quest not active");
+            Debug.Log("Квест не активен");
             return false;
         }
 
         if (!progress.IsCompleted)
         {
-            Debug.Log("Quest objectives not completed yet");
+            Debug.Log("Цели квеста ещё не выполнены");
             return false;
         }
 
@@ -109,4 +170,18 @@ public class QuestController : MonoBehaviour
     public bool IsQuestCompleted(string questID) => completedQuests.Any(q => q.questID == questID);
 
     public QuestProgress GetQuestProgress(string questID) => activeQuests.Find(q => q.quest.questID == questID);
+
+    /// <summary>
+    /// Находит квест по ID из папки Resources/Quests
+    /// </summary>
+    private Quest GetQuestByID(string questID)
+    {
+        Quest[] allQuests = Resources.LoadAll<Quest>("Quests");
+        foreach (Quest q in allQuests)
+        {
+            if (q.questID == questID)
+                return q;
+        }
+        return null;
+    }
 }
