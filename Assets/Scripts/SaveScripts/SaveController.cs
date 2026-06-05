@@ -199,4 +199,22 @@ public class SaveController : MonoBehaviour
 
         return null;
     }
+
+    public void DeleteSave()
+    {
+        if (File.Exists(saveLocation))
+        {
+            File.Delete(saveLocation);
+            Debug.Log("Save file deleted!");
+
+            // Перезагружаем текущую сцену
+            UnityEngine.SceneManagement.SceneManager.LoadScene(
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex
+            );
+        }
+        else
+        {
+            Debug.Log("No save file found to delete");
+        }
+    }
 }
