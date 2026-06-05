@@ -76,4 +76,5 @@ Universal Render Pipeline - используется для рендеринга
 1. Установите Unity Hub и Unity Editor (версия 2022.3 LTS или новее)
 2. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/ваш_username/название_проекта.git
+   git clone https://github.com/Elesor/Game
+3. Зайти в Unity и запустите проект.
