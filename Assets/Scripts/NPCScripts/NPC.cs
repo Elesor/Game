@@ -195,5 +195,23 @@ public class NPC : MonoBehaviour, IInteractable
             dialogueUI.SetDialogueText("");
             dialogueUI.ShowDialogueUI(false);
         }
+
+        // ИСПРАВЛЕНО: обращаемся к npcName через dialogueData
+        if (dialogueData != null && dialogueData.npcName == "Далиба Богдан")
+        {
+            CompleteCurrentQuest();
+        }
     }
+
+    public void CompleteCurrentQuest()
+    {
+        string questID = "talk_to_bogdan";
+
+        if (QuestController.Instance != null && QuestController.Instance.IsQuestActive(questID))
+        {
+            QuestController.Instance.CompleteQuest(questID);
+            Debug.Log($"Квест {questID} выполнен!");
+        }
+    }
+
 }

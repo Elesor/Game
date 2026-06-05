@@ -78,10 +78,8 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
     {
         if (codePanel == null || codePanel.activeSelf) return;
 
-        // Запоминаем, был ли уже активен UI режим
         wasUIModeActiveBefore = PauseController.IsUIModeActive;
 
-        // Включаем UI режим через PauseController (он отключит движение и покажет курсор)
         if (!wasUIModeActiveBefore)
         {
             PauseController.Instance.EnableUIMode();
@@ -102,7 +100,6 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
 
         codePanel.SetActive(false);
 
-        // Выключаем UI режим только если его не было до открытия панели
         if (!wasUIModeActiveBefore)
         {
             PauseController.Instance.DisableUIMode();
@@ -167,8 +164,12 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
                 }
                 else
                 {
+                    // ВСЕ ЗАДАЧИ ВЫПОЛНЕНЫ
                     resultText.text += "\nПоздравляю! Вы завершили все задачи!";
                     if (submitButton != null) submitButton.interactable = false;
+
+                    // ОБНОВЛЯЕМ КВЕСТ И ВЫДАЁМ СЛЕДУЮЩИЙ
+                    OnAllTasksCompleted();
 
                     // ВЫЗЫВАЕМ СОБЫТИЕ ЗАВЕРШЕНИЯ МИНИ-ИГРЫ
                     OnMiniGameCompleted?.Invoke(true);
@@ -180,6 +181,69 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
                 resultText.color = Color.red;
             }
         }
+    }
+
+    /// <summary>
+    /// Вызывается когда все задачи решены
+    /// </summary>
+    private void OnAllTasksCompleted()
+    {
+        if (QuestController.Instance == null)
+        {
+            Debug.LogWarning("QuestController.Instance не найден!");
+            return;
+        }
+
+        // 1. Завершаем квест "coding_tutorial" (который выдал Богдан)
+        string codingQuestID = "coding_tutorial";
+        string codingObjectiveID = "complete_coding_tutorial";
+
+        if (QuestController.Instance.IsQuestActive(codingQuestID))
+        {
+            QuestController.Instance.UpdateObjective(codingQuestID, codingObjectiveID, 1);
+            Debug.Log($"✅ Квест '{codingQuestID}' выполнен!");
+        }
+        else
+        {
+            Debug.Log($"⚠️ Квест '{codingQuestID}' не активен. Убедитесь, что Богдан выдал квест.");
+        }
+
+        // 2. Выдаём следующий квест "Поговорить с Анной Витальевной"
+        string nextQuestID = "talk_to_anna";
+        Quest nextQuest = GetQuestByID(nextQuestID);
+
+        if (nextQuest != null)
+        {
+            // Проверяем, что квест ещё не активен и не завершён
+            if (!QuestController.Instance.IsQuestActive(nextQuestID) &&
+                !QuestController.Instance.IsQuestCompleted(nextQuestID))
+            {
+                QuestController.Instance.AcceptQuest(nextQuest);
+                Debug.Log($"✅ Выдан следующий квест: {nextQuest.questName}");
+            }
+            else
+            {
+                Debug.Log($"Квест '{nextQuestID}' уже активен или завершён");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"❌ Квест '{nextQuestID}' не найден в папке Resources/Quests!");
+        }
+    }
+
+    /// <summary>
+    /// Находит квест по ID из папки Resources/Quests
+    /// </summary>
+    private Quest GetQuestByID(string questID)
+    {
+        Quest[] allQuests = Resources.LoadAll<Quest>("Quests");
+        foreach (Quest q in allQuests)
+        {
+            if (q.questID == questID)
+                return q;
+        }
+        return null;
     }
 
     void LoadTask(int index)
