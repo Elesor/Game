@@ -86,7 +86,7 @@ public class CodeInterpreter
         }
 
         // Паттерн для простого return выражение;
-        string returnPattern = @"return\s+(.+?);?";
+        string returnPattern = @"return\s+(.+);";
         Match returnMatch = Regex.Match(code, returnPattern, RegexOptions.IgnoreCase);
 
         if (returnMatch.Success)

@@ -5,6 +5,8 @@ using TMPro;
 
 public class CodingMiniGame : MonoBehaviour, IInteractable
 {
+    public static System.Action<bool> OnMiniGameCompleted;
+
     [Header("UI Elements")]
     public GameObject codePanel;
     public TMP_InputField codeInput;
@@ -167,6 +169,9 @@ public class CodingMiniGame : MonoBehaviour, IInteractable
                 {
                     resultText.text += "\nПоздравляю! Вы завершили все задачи!";
                     if (submitButton != null) submitButton.interactable = false;
+
+                    // ВЫЗЫВАЕМ СОБЫТИЕ ЗАВЕРШЕНИЯ МИНИ-ИГРЫ
+                    OnMiniGameCompleted?.Invoke(true);
                 }
             }
             else

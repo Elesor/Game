@@ -159,6 +159,19 @@ public class NPC : MonoBehaviour, IInteractable
             QuestController.Instance.AcceptQuest(dialogueData.quest);
             questState = QuestState.InProgress;
         }
+        else
+        {
+            // НОВОЕ: проверяем, можно ли сдать квест
+            if (dialogueData.quest != null && QuestController.Instance.IsQuestActive(dialogueData.quest.questID))
+            {
+                bool submitted = QuestController.Instance.SubmitQuest(dialogueData.quest.questID);
+                if (submitted)
+                {
+                    questState = QuestState.Completed;
+                    Debug.Log("Quest submitted!");
+                }
+            }
+        }
 
         dialogueIndex = nextIndex;
         dialogueUI.ClearChoice();
